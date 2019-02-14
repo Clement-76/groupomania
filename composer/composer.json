@@ -1,0 +1,12 @@
+{
+    "name": "clement/groupomania",
+    "require": {
+        "twig/twig": "^1.37"
+    },
+    "authors": [
+        {
+            "name": "Clement-76",
+            "email": "clement.patigny@gmail.com"
+        }
+    ]
+}

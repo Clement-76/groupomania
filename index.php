@@ -1,7 +1,7 @@
 <?php
+define('ROOT', __DIR__);
 
 require 'composer/vendor/autoload.php';
-
 session_start();
 
 $action = 'login';
@@ -16,14 +16,9 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
     $controller .= 'UsersController';
 }
 
-if (class_exists('\ClementPatigny\Controller\UsersController')) {
+if (class_exists($controller) && method_exists($controller, $action)) {
     $controller = new $controller();
-    if (method_exists($controller, $action)) {
-        $controller->$action();
-    } else {
-        header("HTTP/1.0 404 Not Found");
-        exit;
-    }
+    $controller->$action();
 } else {
     header("HTTP/1.0 404 Not Found");
     exit;

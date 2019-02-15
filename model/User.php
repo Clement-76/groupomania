@@ -101,5 +101,4 @@ class User {
     public function getRegistrationDate() {
         return $this->_registrationDate;
     }
-
 }

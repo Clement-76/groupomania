@@ -6,6 +6,14 @@ use ClementPatigny\Model\UserManager;
 
 class UsersController extends AppController {
 
+    /**
+     * displays the form to login and if the form
+     * has been submitted checks the data and login the user
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function login() {
         if (!isset($_SESSION['user'])) {
             $errors = false;

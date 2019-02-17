@@ -62,6 +62,11 @@ class UserManager extends Manager {
         }
     }
 
+    /**
+     * @param string $pseudo
+     * @return string
+     * @throws \Exception
+     */
     public function getPseudo($pseudo) {
         $db = $this->connectDb();
 
@@ -76,6 +81,11 @@ class UserManager extends Manager {
         return $pseudo;
     }
 
+    /**
+     * @param string $email
+     * @return string
+     * @throws \Exception
+     */
     public function getEmail($email) {
         $db = $this->connectDb();
 

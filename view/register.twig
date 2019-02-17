@@ -1,0 +1,40 @@
+{% extends "template.twig" %}
+
+{% block content %}
+    <header>
+        <img style="width: 71px;" src="assets/images/global_icon.svg" alt="global icon">
+        <h1>Groupomania</h1>
+        <h2>Créer un compte</h2>
+    </header>
+
+    <form method="post">
+        <p>
+            <div>
+                <input id="email" type="email" name="email" placeholder="Email" required value="{{ email }}">
+                {% if errors['email'] %}<span style="color: #b10b28;">Veuillez entrer un email valide</span>{% endif %}
+            </div>
+            <div>
+                <input id="pseudo" type="text" name="pseudo" placeholder="Pseudonyme" value="{{ pseudo }}">
+                {% if errors['pseudo_not_available'] %}<span style="color: #b10b28;">Le pseudo {{ pseudo }} n'est pas disponible</span>{% endif %}
+                {% if errors['pseudo'] %}<span style="color: #b10b28;">25 caractères maximum, chiffres, lettres, (_-.) autorisés</span>{% endif %}
+            </div>
+        </p>
+        <p>
+            <div>
+                <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+                <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
+            </div>
+            <span {% if errors['password'] %}style="color: #b10b28;"{% endif %}>7 caractères minimum, 1 chiffre, 1 majuscule</span>
+        </p>
+        <p>
+            <div>
+                <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
+                <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
+            </div>
+            {% if errors['password_confirmation'] %}<span style="color: #b10b28;">Attention : le mot de passe doit être identique</span>{% endif %}
+        </p>
+        <p>
+            <input type="submit" value="Valider">
+        </p>
+    </form>
+{% endblock %}

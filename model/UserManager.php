@@ -23,4 +23,18 @@ class UserManager extends Manager {
             throw new \Exception($e->getMessage());
         }
     }
+
+    public function getPseudo($pseudo) {
+        $db = $this->connectDb();
+
+        try {
+            $q = $db->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
+            $q->execute([$pseudo]);
+            $pseudo = $q->fetch()['pseudo'];
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+
+        return $pseudo;
+    }
 }

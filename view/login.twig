@@ -1,0 +1,29 @@
+{% extends "template.twig" %}
+
+{% block content %}
+    <header>
+        <img style="width: 71px;" src="assets/images/global_icon.svg" alt="global icon">
+        <h1>Groupomania</h1>
+    </header>
+
+    <form method="post">
+        {% if errors %}
+            <p class="error_login">Identifiant ou mot de passe incorrect</p>
+        {% endif %}
+
+        <p>
+            <input id="login" type="text" name="login" placeholder="Email ou pseudonyme" required>
+        </p>
+        <p>
+            <input id="password" type="password" name="password" placeholder="Mot de passe" required>
+            <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
+        </p>
+        <p>
+            <input type="submit" value="SE CONNECTER">
+        </p>
+    </form>
+
+    <a href="index.php?action=users.register">CRÉER UN COMPTE</a>
+
+    <a href="">Mot de passe oublié ?</a>
+{% endblock %}

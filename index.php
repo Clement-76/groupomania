@@ -7,8 +7,8 @@ session_start();
 $action = 'login';
 $controller = '\ClementPatigny\Controller\\'; // the namespace
 
-if (isset($_GET['action']) && !empty($_GET['action'])) {
-    // the format of the GET parameter is controller.action
+if (isset($_GET['action']) && !empty($_GET['action']) && preg_match('#.+\..+#', $_GET['action'])) {
+    // the format of the GET parameter is controllerName.action
     $data = explode('.', $_GET['action']);
     $action = $data[1];
     $controller .= ucfirst($data[0]) . 'Controller';

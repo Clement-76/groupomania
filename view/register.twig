@@ -11,6 +11,7 @@
         <p>
             <div>
                 <input id="email" type="email" name="email" placeholder="Email" required value="{{ email }}">
+                {% if errors['email_not_available'] %}<span style="color: #b10b28;">L'email {{ email }} n'est pas disponible</span>{% endif %}
                 {% if errors['email'] %}<span style="color: #b10b28;">Veuillez entrer un email valide</span>{% endif %}
             </div>
             <div>

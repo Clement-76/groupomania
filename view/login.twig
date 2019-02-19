@@ -21,7 +21,7 @@
             <input class="full-width" id="login" type="text" name="login" value="Email ou pseudonyme" required>
         </div>
         <div class="eye-container">
-            <input class="full-width" id="password" type="password" name="password" value="Mot de passe" required>
+            <input class="full-width" id="password" type="text" name="password" value="Mot de passe" required>
             <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
         </div>
         <div>
@@ -32,4 +32,8 @@
     <a class="create-account" href="index.php?action=users.register">CRÉER UN COMPTE</a>
 
     <a id="forgot-password" href="">Mot de passe oublié ?</a>
+{% endblock %}
+
+{% block scripts %}
+    <script src="assets/js/toggleEye.js"></script>
 {% endblock %}

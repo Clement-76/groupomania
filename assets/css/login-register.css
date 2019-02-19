@@ -1,9 +1,7 @@
 /* $direction : column | column-reverse | row | row-reverse */
 .sign-form {
-    width: 66%;
-}
-
-.sign-form input {
+  width: 66%; }
+  .sign-form input {
     font-size: 1em;
     font-weight: 500;
     border: 1px solid #62615F;
@@ -12,154 +10,165 @@
     color: #442b2d;
     box-sizing: border-box;
     padding: 18px 60px 18px 15px;
-    font-family: "Roboto", sans-serif;
-}
-
-.sign-form input.full-width {
-    width: 100%;
-}
-
-.sign-form input#login {
-    margin-bottom: 21px;
-}
-
-.sign-form input[type="submit"] {
-    display: block;
-    margin-top: 60px;
-    cursor: pointer;
-    border-radius: 25px;
-    border: none;
-    background: #ff815d;
-    text-transform: uppercase;
-    padding: 11px 45px;
-    font-weight: 500;
-    letter-spacing: 0.30px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
-}
-
-.sign-form input[type="submit"].center {
-    margin: 60px auto 0 auto;
-    padding: 11px 100px;
-}
-
-.sign-form input[type="submit"].right {
-    margin-left: auto;
-}
-
-.sign-form .eye-container {
+    font-family: "Roboto", sans-serif; }
+    .sign-form input.full-width {
+      width: 100%; }
+    .sign-form input#login {
+      margin-bottom: 21px; }
+    .sign-form input[type="submit"] {
+      display: block;
+      margin-top: 60px;
+      cursor: pointer;
+      border-radius: 25px;
+      border: none;
+      background: #ff815d;
+      text-transform: uppercase;
+      padding: 11px 45px;
+      font-weight: 500;
+      letter-spacing: 0.30px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14); }
+      .sign-form input[type="submit"].center {
+        margin: 60px auto 0 auto;
+        padding: 11px 100px; }
+      .sign-form input[type="submit"].right {
+        margin-left: auto; }
+  .sign-form .eye-container {
     position: relative;
-}
-
-.sign-form .eye-container .eye {
-    position: absolute;
-    padding: 18px;
-    cursor: pointer;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    color: #ff082b;
-}
-
-.sign-form .input-pair {
+    margin-top: 26px; }
+    .sign-form .eye-container .eye {
+      position: absolute;
+      padding: 18px;
+      cursor: pointer;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      color: #ff082b; }
+  .sign-form .input-pair {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 26px;
-}
+    justify-content: space-between; }
+    .sign-form .input-pair div {
+      width: 45%; }
+      .sign-form .input-pair div input {
+        width: 100%;
+        padding: 18px 15px; }
+  .sign-form .info {
+    font-size: 0.8em;
+    font-weight: 400; }
+    .sign-form .info.error {
+      color: #b10b28; }
+  .sign-form p.error {
+    color: #b10b28; }
 
-.sign-form .input-pair div {
-    width: 45%;
+@media all and (min-width: 1700px) {
+  .sign-form {
+    width: 50%; } 
 }
-
-.sign-form .input-pair div input {
-    width: 100%;
-    padding: 18px 15px;
+@media all and (max-width: 768px) {
+  .sign-form {
+    width: 75%; }
+    .sign-form input[type="submit"].center {
+      margin-top: 36px; }
+    .sign-form input#login {
+      margin-bottom: 5px; } 
 }
-
-.sign-form .info {
-    font-size: 0.75em;
-    font-weight: 400;
+@media all and (max-width: 425px) {
+  .sign-form {
+    width: 86%; }
+    .sign-form input[type="submit"] {
+      margin: 25px auto 0 auto; }
+      .sign-form input[type="submit"].center {
+        padding: 10px 45px; }
+    .sign-form input#email {
+      margin-bottom: 15px; }
+    .sign-form .input-pair {
+      display: block;
+      margin-bottom: 15px; }
+      .sign-form .input-pair div {
+        width: 100%; }
+    .sign-form .eye-container {
+      margin-top: 15px; } 
 }
-
-.sign-form .info.error {
-    color: #b10b28;
-}
-
-.sign-form p.error {
-    color: #b10b28;
-}
-
 body {
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-body:before, body:after {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  body .return {
+    display: none; }
+  body:before, body:after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     z-index: -2;
     opacity: 0.2;
-    background: url("../images/background-large.jpg") center/cover no-repeat;
-}
-
-body:after {
+    background: url("../images/background-large.jpg") center/cover no-repeat; }
+  body:after {
     opacity: 1;
     z-index: -1;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(253, 45, 1, 0.8) 100%);
-}
-
-body header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(253, 45, 1, 0.8) 100%); }
+  body header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh 0 65px 0;
-}
-
-body header h1 {
-    margin: 0;
-    color: #fd2d01;
-    font-size: 2.4em;
-}
-
-body header h2 {
-    margin: 32px 0 0 0;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 1.3em;
-}
-
-body header img {
-    width: 71px;
-}
-
-body header a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-body .create-account {
+    margin: 10vh 0 65px 0; }
+    body header h1 {
+      margin: 0;
+      color: #fd2d01;
+      font-size: 2.4em; }
+    body header h2 {
+      margin: 32px 0 0 0;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 1.3em; }
+    body header img {
+      width: 71px; }
+    body header a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+  body .create-account {
     margin-top: 30px;
     font-size: 0.95em;
     font-weight: 500;
     letter-spacing: 1.3px;
     color: #d80000;
-    text-decoration: none;
-}
-
-body #forgot-password {
+    text-decoration: none; }
+  body #forgot-password {
     color: #fff;
     font-size: 0.9em;
     font-weight: 500;
     position: absolute;
-    bottom: 56px;
+    bottom: 56px; }
+
+@media all and (max-width: 768px) {
+  body header {
+    margin: 8vh 0 35px 0; }
+    body header h1 {
+      font-size: 2.1em; }
+    body header h2 {
+      margin: 20px 0 0 0;
+      font-size: 1.2em; }
+    body header img {
+      width: 60px; }
+  body #forgot-password {
+    position: static;
+    margin-top: 25px; } 
+}
+@media all and (max-width: 425px) {
+  body header {
+    margin: 5vh 0 25px 0; }
+  body .return {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 15px; }
+    body .return img {
+      width: 36px; } 
 }
 
 /*# sourceMappingURL=login-register.css.map */

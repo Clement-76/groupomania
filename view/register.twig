@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block content %}
+    <a class="return" href="index.php">
+        <img src="assets/images/arrow_right_icon.svg" alt="arrow right icon">
+    </a>
+
     <header>
         <a href="index.php">
             <img src="assets/images/global_icon.svg" alt="global icon">
@@ -31,22 +35,22 @@
                 {% if errors['pseudo'] %}<span class="info error">25 caractères maximum, chiffres, lettres, (_-.) autorisés</span>{% endif %}
             </div>
         </div>
-        <p>
+        <div>
             <div class="eye-container">
                 <input class="full-width" id="password" type="text" name="password" value="Mot de passe" required>
                 <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
             </div>
             <span class="info {% if errors['password'] %} error {% endif %}">7 caractères minimum, 1 chiffre, 1 majuscule</span>
-        </p>
-        <p>
+        </div>
+        <div>
             <div class="eye-container">
                 <input class="full-width" id="password_confirmation" type="text" name="password_confirmation" value="Confirmer le mot de passe" required>
                 <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
             </div>
             {% if errors['password_confirmation'] %}<span class="info error">Attention : le mot de passe doit être identique</span>{% endif %}
-        </p>
-        <p>
+        </div>
+        <div>
             <input class="right" type="submit" value="Valider">
-        </p>
+        </div>
     </form>
 {% endblock %}

@@ -7,9 +7,13 @@ body {
     margin: 0;
     @include flex-center(column);
 
+    .return {
+        display: none;
+    }
+
     &:before {
         content: '';
-        position: absolute;
+        position: fixed;
         top: 0;
         bottom: 0;
         right: 0;
@@ -70,3 +74,47 @@ body {
     }
 }
 
+@media all and (max-width: 768px) {
+    body {
+        header {
+            margin: 8vh 0 35px 0;
+
+            h1 {
+                font-size: 2.1em;
+            }
+
+            h2 {
+                margin: 20px 0 0 0;
+                font-size: 1.2em;
+            }
+
+            img {
+                width: 60px;
+            }
+        }
+
+        #forgot-password {
+            position: static;
+            margin-top: 25px;
+        }
+    }
+}
+
+@media all and (max-width: 425px) {
+    body {
+        header {
+            margin: 5vh 0 25px 0;
+        }
+
+        .return {
+            display: block;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+
+            img {
+                width: 36px;
+            }
+        }
+    }
+}

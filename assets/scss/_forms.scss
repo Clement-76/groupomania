@@ -46,6 +46,7 @@
 
     .eye-container {
         position: relative;
+        margin-top: 26px;
 
         .eye {
             position: absolute;
@@ -61,7 +62,6 @@
     .input-pair {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 26px;
 
         div {
             width: 45%;
@@ -74,7 +74,7 @@
     }
 
     .info {
-        font-size: 0.75em;
+        font-size: 0.8em;
         font-weight: 400;
 
         &.error {
@@ -84,5 +84,61 @@
 
     p.error {
         color: $red-text-error;
+    }
+}
+
+@media all and (min-width: 1700px) {
+    .sign-form {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .sign-form {
+        width: 75%;
+
+        input {
+            &[type="submit"].center {
+                margin-top: 36px;
+            }
+
+            &#login {
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+}
+
+@media all and (max-width: 425px) {
+    .sign-form {
+        width: 86%;
+
+        input {
+            &[type="submit"] {
+                margin: 25px auto 0 auto;
+
+                &.center {
+                    padding: 10px 45px;
+                }
+            }
+
+            &#email {
+                margin-bottom: 15px;
+            }
+        }
+
+        .input-pair {
+            display: block;
+            margin-bottom: 15px;
+
+            div {
+                width: 100%;
+            }
+        }
+
+        .eye-container {
+            margin-top: 15px;
+        }
     }
 }

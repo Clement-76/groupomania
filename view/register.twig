@@ -38,14 +38,14 @@
         <div>
             <div class="eye-container">
                 <input class="full-width" id="password" type="text" name="password" value="Mot de passe" required>
-                <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
+                <img class="eye" style="width: 24px;" src="assets/images/invisible_eye_icon.svg" alt="eye icon">
             </div>
             <span class="info {% if errors['password'] %} error {% endif %}">7 caractères minimum, 1 chiffre, 1 majuscule</span>
         </div>
         <div>
             <div class="eye-container">
                 <input class="full-width" id="password_confirmation" type="text" name="password_confirmation" value="Confirmer le mot de passe" required>
-                <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
+                <img class="eye" style="width: 24px;" src="assets/images/invisible_eye_icon.svg" alt="eye icon">
             </div>
             {% if errors['password_confirmation'] %}<span class="info error">Attention : le mot de passe doit être identique</span>{% endif %}
         </div>

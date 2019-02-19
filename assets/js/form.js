@@ -5,12 +5,14 @@ $(".sign-form input").on("focus", function (e) {
 
     if (e.target.value === this.defaultValue) {
         e.target.value = "";
+        $(e.target).attr("type", "password");
+        $(e.target).siblings().attr("src", "assets/images/invisible_eye_icon.svg");
     }
 });
 
 $(".sign-form input").on("blur", function (e) {
     if (e.target.value === "") {
-        console.log("ok");
         e.target.value = this.defaultValue;
+        $(e.target).attr("type", "text");
     }
 });

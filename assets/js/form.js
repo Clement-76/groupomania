@@ -5,14 +5,19 @@ $(".sign-form input").on("focus", function (e) {
 
     if (e.target.value === this.defaultValue) {
         e.target.value = "";
-        $(e.target).attr("type", "password");
-        $(e.target).siblings().attr("src", "assets/images/invisible_eye_icon.svg");
+
+        if ($(e.target).parent().hasClass("eye-container")) {
+            $(e.target).attr("type", "password");
+            $(e.target).siblings().attr("src", "assets/images/invisible_eye_icon.svg");
+        }
     }
 });
 
 $(".sign-form input").on("blur", function (e) {
     if (e.target.value === "") {
         e.target.value = this.defaultValue;
-        $(e.target).attr("type", "text");
+        if ($(e.target).parent().hasClass("eye-container")) {
+            $(e.target).attr("type", "text");
+        }
     }
 });

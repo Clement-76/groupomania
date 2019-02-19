@@ -1,0 +1,13 @@
+/* $direction : column | column-reverse | row | row-reverse */
+@mixin flex-center($direction) {
+    display: flex;
+    flex-direction: $direction;
+
+    @if ($direction == row or $direction == row-reverse) {
+        justify-content: center;
+    } @else if ($direction == column or $direction == column-reverse) {
+        align-items: center;
+    } @else {
+        @error "bad value '#{$direction}' for $direction variable";
+    }
+}

@@ -1,0 +1,88 @@
+.sign-form {
+    width: 66%;
+
+    input {
+        font-size: 1em;
+        font-weight: 500;
+        border: 1px solid #62615F;
+        border-radius: 5px;
+        background: transparent;
+        color: $brown;
+        box-sizing: border-box;
+        padding: 18px 60px 18px 15px;
+        font-family: $fonts;
+
+        &.full-width {
+            width: 100%;
+        }
+
+        &#login {
+            margin-bottom: 21px;
+        }
+
+        &[type="submit"] {
+            display: block;
+            margin-top: 60px;
+            cursor: pointer;
+            border-radius: 25px;
+            border: none;
+            background: $melon;
+            text-transform: uppercase;
+            padding: 11px 45px;
+            font-weight: 500;
+            letter-spacing: 0.30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+
+            &.center {
+                margin: 60px auto 0 auto;
+                padding: 11px 100px;
+            }
+
+            &.right {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .eye-container {
+        position: relative;
+
+        .eye {
+            position: absolute;
+            padding: 18px;
+            cursor: pointer;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            color: #ff082b;
+        }
+    }
+
+    .input-pair {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 26px;
+
+        div {
+            width: 45%;
+
+            input {
+                width: 100%;
+                padding: 18px 15px;
+            }
+        }
+    }
+
+    .info {
+        font-size: 0.75em;
+        font-weight: 400;
+
+        &.error {
+            color: $red-text-error;
+        }
+    }
+
+    p.error {
+        color: $red-text-error;
+    }
+}

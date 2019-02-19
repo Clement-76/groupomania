@@ -1,29 +1,35 @@
 {% extends "template.twig" %}
 
+{% block links %}
+    <link rel="stylesheet" href="assets/css/login-register.css">
+{% endblock %}
+
 {% block content %}
     <header>
-        <img style="width: 71px;" src="assets/images/global_icon.svg" alt="global icon">
-        <h1>Groupomania</h1>
+        <a href="index.php">
+            <img src="assets/images/global_icon.svg" alt="global icon">
+            <h1>Groupomania</h1>
+        </a>
     </header>
 
-    <form method="post">
+    <form class="sign-form" method="post">
         {% if errors %}
-            <p class="error_login">Identifiant ou mot de passe incorrect</p>
+            <p class="error">Identifiant ou mot de passe incorrect</p>
         {% endif %}
 
         <p>
-            <input id="login" type="text" name="login" placeholder="Email ou pseudonyme" required>
+            <input class="full-width" id="login" type="text" name="login" value="Email ou pseudonyme" required>
+        </p>
+        <p class="eye-container">
+            <input class="full-width" id="password" type="password" name="password" value="Mot de passe" required>
+            <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
         </p>
         <p>
-            <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-            <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
-        </p>
-        <p>
-            <input type="submit" value="SE CONNECTER">
+            <input class="center" type="submit" value="SE CONNECTER">
         </p>
     </form>
 
-    <a href="index.php?action=users.register">CRÉER UN COMPTE</a>
+    <a class="create-account" href="index.php?action=users.register">CRÉER UN COMPTE</a>
 
-    <a href="">Mot de passe oublié ?</a>
+    <a id="forgot-password" href="">Mot de passe oublié ?</a>
 {% endblock %}

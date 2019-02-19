@@ -1,40 +1,52 @@
 {% extends "template.twig" %}
 
+{% block links %}
+    <link rel="stylesheet" href="assets/css/login-register.css">
+{% endblock %}
+
 {% block content %}
     <header>
-        <img style="width: 71px;" src="assets/images/global_icon.svg" alt="global icon">
-        <h1>Groupomania</h1>
+        <a href="index.php">
+            <img src="assets/images/global_icon.svg" alt="global icon">
+            <h1>Groupomania</h1>
+        </a>
         <h2>Créer un compte</h2>
     </header>
 
-    <form method="post">
+    <form class="sign-form" method="post">
+        <div class="input-pair">
+            <div>
+                {% if email is null %}
+                    {% set email = 'Email' %}
+                {% endif %}
+                <input id="email" type="email" name="email" value="{{ email }}" required>
+                {% if errors['email'] %}<span class="info error">Veuillez entrer un email valide</span>{% endif %}
+            </div>
+            <div>
+                {% if pseudo is null %}
+                    {% set pseudo = 'Pseudonyme' %}
+                {% endif %}
+                <input id="pseudo" type="text" name="pseudo" value="{{ pseudo }}">
+                {% if errors['pseudo_not_available'] %}<span class="info error">Le pseudo {{ pseudo }} n'est pas disponible</span>{% endif %}
+                {% if errors['pseudo'] %}<span class="info error">25 caractères maximum, chiffres, lettres, (_-.) autorisés</span>{% endif %}
+            </div>
+        </div>
         <p>
-            <div>
-                <input id="email" type="email" name="email" placeholder="Email" required value="{{ email }}">
-                {% if errors['email'] %}<span style="color: #b10b28;">Veuillez entrer un email valide</span>{% endif %}
+            <div class="eye-container">
+                <input class="full-width" id="password" type="text" name="password" value="Mot de passe" required>
+                <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
             </div>
-            <div>
-                <input id="pseudo" type="text" name="pseudo" placeholder="Pseudonyme" value="{{ pseudo }}">
-                {% if errors['pseudo_not_available'] %}<span style="color: #b10b28;">Le pseudo {{ pseudo }} n'est pas disponible</span>{% endif %}
-                {% if errors['pseudo'] %}<span style="color: #b10b28;">25 caractères maximum, chiffres, lettres, (_-.) autorisés</span>{% endif %}
-            </div>
+            <span class="info {% if errors['password'] %} error {% endif %}">7 caractères minimum, 1 chiffre, 1 majuscule</span>
         </p>
         <p>
-            <div>
-                <input id="password" type="password" name="password" placeholder="Mot de passe" required>
-                <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
+            <div class="eye-container">
+                <input class="full-width" id="password_confirmation" type="text" name="password_confirmation" value="Confirmer le mot de passe" required>
+                <img class="eye" style="width: 24px;" src="assets/images/visible_eye_icon.svg" alt="eye icon">
             </div>
-            <span {% if errors['password'] %}style="color: #b10b28;"{% endif %}>7 caractères minimum, 1 chiffre, 1 majuscule</span>
+            {% if errors['password_confirmation'] %}<span class="info error">Attention : le mot de passe doit être identique</span>{% endif %}
         </p>
         <p>
-            <div>
-                <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
-                <img style="width: 24px;" src="assets/images/visible_eye_icon" alt="eye icon">
-            </div>
-            {% if errors['password_confirmation'] %}<span style="color: #b10b28;">Attention : le mot de passe doit être identique</span>{% endif %}
-        </p>
-        <p>
-            <input type="submit" value="Valider">
+            <input class="right" type="submit" value="Valider">
         </p>
     </form>
 {% endblock %}

@@ -6,27 +6,36 @@ use ClementPatigny\Model\UserManager;
 
 class UsersController extends AppController {
 
+    /**
+     * displays the form to login and if the form
+     * has been submitted checks the data and login the user
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function login() {
         if (!isset($_SESSION['user'])) {
             $errors = false;
 
             if (isset($_POST['login']) && isset($_POST['password'])) {
                 if (preg_match('#^[a-z\d]+([.\-_]{1}[a-z\d]+)*@[a-z\d]+\.[a-z]+$#', $_POST['login'])) {
-                    $login = 'email';
+                    $loginType = 'email';
                 } else {
-                    $login = 'pseudo';
+                    $loginType = 'pseudo';
                 }
 
                 try {
                     $userManager = new UserManager();
-                    $user = $userManager->getUser($_POST['login'], $login);
+                    $user = $userManager->getUser($_POST['login'], $loginType);
                 } catch (\Exception $e) {
                     throw new \Exception($e->getMessage());
                 }
 
-                if (password_verify($_POST['password'], $user->getPassword())) {
-                    $_SESSION['user'] = $user;
-                    header('Location: index.php?action='); // redirection to home
+                if (password_verify($_POST['password'], $user['password'])) {
+                    $_SESSION['user'] = $user['userObj'];
+                    header('Location: index.php?action=posts.listPosts');
+                    exit();
                 } else {
                     $errors = true;
                 }
@@ -35,7 +44,8 @@ class UsersController extends AppController {
             $pageTitle = "Connexion";
             echo $this->twig->render('login.twig', compact('errors', 'pageTitle'));
         } else {
-            header('Location: index.php?action='); // redirection to home
+            header('Location: index.php?action=posts.listPosts');
+            exit();
         }
     }
 
@@ -53,13 +63,24 @@ class UsersController extends AppController {
 
             if (isset($_POST['email']) && isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['password_confirmation'])) {
 
+                try {
+                    $userManager = new UserManager();
+                    $email = $userManager->getEmail($_POST['email']);
+                } catch (\Exception $e) {
+                    throw new \Exception($e->getMessage());
+                }
+
                 if (!preg_match('#^[a-z\d]+([.\-_]{1}[a-z\d]+)*@[a-z\d]+\.[a-z]+$#', $_POST['email'])) {
                     $errors['email'] = true;
                     $errors['errors'] = true;
                 }
 
+                if ($_POST['email'] == $email) {
+                    $errors['email_not_available'] = true;
+                    $errors['errors'] = true;
+                }
+
                 try {
-                    $userManager = new UserManager();
                     $pseudo = $userManager->getPseudo($_POST['pseudo']);
                 } catch (\Exception $e) {
                     throw new \Exception($e->getMessage());
@@ -103,6 +124,7 @@ class UsersController extends AppController {
                     }
 
                     header('Location: index.php');
+                    exit();
                 }
             }
 
@@ -116,7 +138,8 @@ class UsersController extends AppController {
                 echo $this->twig->render('register.twig', compact('errors', 'pageTitle', 'email', 'pseudo'));
             }
         } else {
-            header('Location: index.php?action='); // redirection to home
+            header('Location: index.php?action=posts.listPosts');
+            exit();
         }
     }
 }

@@ -15,6 +15,18 @@
     font-family: "Roboto", sans-serif;
 }
 
+.sign-form input::placeholder {
+    color: #452C2E;
+}
+
+.sign-form input::-ms-input-placeholder {
+    color: #452C2E;
+}
+
+.sign-form input::-webkit-input-placeholder {
+    color: #452C2E;
+}
+
 .sign-form input.full-width {
     width: 100%;
 }
@@ -25,6 +37,10 @@
 
 .sign-form input.error {
     border: 2px solid #b00020;
+}
+
+.sign-form input.error + .icon {
+    color: #b00020;
 }
 
 .sign-form input[type="submit"] {
@@ -55,14 +71,15 @@
     margin-top: 26px;
 }
 
-.sign-form .eye-container .eye {
+.sign-form .eye-container .icon {
     position: absolute;
     padding: 18px;
     cursor: pointer;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    color: #ff082b;
+    color: #92928f;
+    font-size: 23px;
 }
 
 .sign-form .input-pair {
@@ -151,7 +168,7 @@ body {
     align-items: center;
 }
 
-body .return {
+body .back {
     display: none;
 }
 
@@ -250,14 +267,14 @@ body #forgot-password {
         margin: 5vh 0 25px 0;
     }
 
-    body .return {
+    body .back {
         display: block;
         position: absolute;
         left: 15px;
         top: 15px;
     }
 
-    body .return img {
+    body .back img {
         width: 36px;
     }
 }

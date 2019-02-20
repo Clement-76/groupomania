@@ -1,6 +1,8 @@
 {% extends "template.twig" %}
 
 {% block links %}
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
     <link rel="stylesheet" href="assets/css/login-register.css">
 {% endblock %}
 
@@ -18,11 +20,11 @@
         {% endif %}
 
         <div>
-            <input class="full-width {% if errors %}error{% endif %}" id="login" type="text" name="login" value="Email ou pseudonyme" required>
+            <input class="full-width {% if errors %}error{% endif %}" id="login" type="text" name="login" placeholder="Email ou pseudonyme" required>
         </div>
         <div class="eye-container">
-            <input class="full-width {% if errors %}error{% endif %}" id="password" type="text" name="password" value="Mot de passe" required>
-            <img class="eye" style="width: 24px;" src="assets/images/invisible_eye_icon.svg" alt="eye icon">
+            <input class="full-width {% if errors %}error{% endif %}" id="password" type="password" name="password" placeholder="Mot de passe" required>
+            <i class="icon icon-invisible"></i>
         </div>
         <div>
             <input class="center" type="submit" value="SE CONNECTER">
@@ -35,6 +37,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="assets/js/toggleEye.js"></script>
-    <script src="assets/js/form.js"></script>
+    <script src="assets/js/passwordVisibilty.js"></script>
 {% endblock %}

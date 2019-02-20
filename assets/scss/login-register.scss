@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins/flex";
+@import "mixins/placeholder";
 @import "forms";
 
 body {
@@ -7,7 +8,7 @@ body {
     margin: 0;
     @include flex-center(column);
 
-    .return {
+    .back {
         display: none;
     }
 
@@ -106,7 +107,7 @@ body {
             margin: 5vh 0 25px 0;
         }
 
-        .return {
+        .back {
             display: block;
             position: absolute;
             left: 15px;

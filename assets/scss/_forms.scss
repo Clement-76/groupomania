@@ -12,6 +12,10 @@
         padding: 18px 60px 18px 15px;
         font-family: $fonts;
 
+        @include placeholder {
+            color: #452C2E;
+        }
+
         &.full-width {
             width: 100%;
         }
@@ -22,6 +26,10 @@
 
         &.error {
             border: 2px solid $red-border-error;
+
+            + .icon {
+                color: #b00020;;
+            }
         }
 
         &[type="submit"] {
@@ -53,14 +61,15 @@
         position: relative;
         margin-top: 26px;
 
-        .eye {
+        .icon {
             position: absolute;
             padding: 18px;
             cursor: pointer;
             top: 50%;
             right: 0;
             transform: translateY(-50%);
-            color: #ff082b;
+            color: #92928f;
+            font-size: 23px;
         }
     }
 

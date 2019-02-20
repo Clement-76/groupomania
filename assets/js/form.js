@@ -1,4 +1,4 @@
-$(".sign-form input").on("focus", function (e) {
+$(".sign-form input:not([type='submit'])").on("focus", function (e) {
     if (!this.defaultValue) {
         this.defaultValue = e.target.value;
     }

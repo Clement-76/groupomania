@@ -18,10 +18,10 @@
         {% endif %}
 
         <div>
-            <input class="full-width" id="login" type="text" name="login" value="Email ou pseudonyme" required>
+            <input class="full-width {% if errors %}error{% endif %}" id="login" type="text" name="login" value="Email ou pseudonyme" required>
         </div>
         <div class="eye-container">
-            <input class="full-width" id="password" type="text" name="password" value="Mot de passe" required>
+            <input class="full-width {% if errors %}error{% endif %}" id="password" type="text" name="password" value="Mot de passe" required>
             <img class="eye" style="width: 24px;" src="assets/images/invisible_eye_icon.svg" alt="eye icon">
         </div>
         <div>

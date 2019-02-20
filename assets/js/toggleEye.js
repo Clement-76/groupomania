@@ -14,6 +14,8 @@ function toggleEye(elt, src) {
     }
 }
 
-$(".eye").on("click", (e) => {
-    toggleEye(e.target, ['assets/images/visible_eye_icon.svg', 'assets/images/invisible_eye_icon.svg']);
+$(() => {
+    $(".eye").on("click", (e) => {
+        toggleEye(e.target, ['assets/images/visible_eye_icon.svg', 'assets/images/invisible_eye_icon.svg']);
+    });
 });

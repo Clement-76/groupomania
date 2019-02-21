@@ -2,7 +2,7 @@
 
 namespace ClementPatigny\Model;
 
-class PostsManager extends Manager {
+class PostManager extends Manager {
     /**
      * return an array that contains Post objects
      * @param int $offset

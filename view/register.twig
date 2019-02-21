@@ -27,7 +27,7 @@
                 {% if errors['email'] %}<span class="info error">Veuillez entrer un email valide</span>{% endif %}
             </div>
             <div>
-                <input id="pseudo" type="text" name="pseudo" value="{{ pseudo }}" placeholder="Pseudonyme">
+                <input id="pseudo" type="text" name="pseudo" value="{{ pseudo }}" maxlength="25" placeholder="Pseudonyme" required>
                 {% if errors['pseudo_not_available'] %}<span class="info error">Le pseudo {{ pseudo }} n'est pas disponible</span>{% endif %}
                 {% if errors['pseudo'] %}<span class="info error">25 caractères maximum, chiffres, lettres, (_-.) autorisés</span>{% endif %}
             </div>

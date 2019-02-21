@@ -5,8 +5,8 @@ namespace ClementPatigny\Model;
 class UserManager extends Manager {
     /**
      * get the user in the db with his email or password
-     * @param $login the email or pseudo
-     * @param $loginType the type of the login, 'email' or 'pseudo'
+     * @param string $login the email or pseudo
+     * @param string $loginType the type of the login, 'email' or 'pseudo'
      * @return array a User object and the password of the user
      * @throws \Exception
      */
@@ -15,9 +15,9 @@ class UserManager extends Manager {
 
         try {
             if ($loginType == 'email') {
-                $q = $db->prepare('SELECT * FROM users WHERE email = ?');
+                $q = $db->prepare('SELECT * FROM groupomania_users WHERE email = ?');
             } else {
-                $q = $db->prepare('SELECT * FROM users WHERE pseudo = ?');
+                $q = $db->prepare('SELECT * FROM groupomania_users WHERE pseudo = ?');
             }
 
             $q->execute([$login]);
@@ -50,14 +50,14 @@ class UserManager extends Manager {
         $db = $this->connectDb();
 
         try {
-            $q = $db->prepare('INSERT INTO users(pseudo, email, password) VALUE(:pseudo, :email, :password)');
+            $q = $db->prepare('INSERT INTO groupomania_users(pseudo, email, password) VALUE(:pseudo, :email, :password)');
 
             $q->bindValue(':pseudo', $userFeatures['pseudo'], \PDO::PARAM_STR);
             $q->bindValue(':email', $userFeatures['email'], \PDO::PARAM_STR);
             $q->bindValue(':password', $userFeatures['password'], \PDO::PARAM_STR);
 
             $q->execute();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
     }
@@ -71,7 +71,7 @@ class UserManager extends Manager {
         $db = $this->connectDb();
 
         try {
-            $q = $db->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
+            $q = $db->prepare('SELECT pseudo FROM groupomania_users WHERE pseudo = ?');
             $q->execute([$pseudo]);
             $pseudo = $q->fetch()['pseudo'];
         } catch (\Exception $e) {
@@ -90,7 +90,7 @@ class UserManager extends Manager {
         $db = $this->connectDb();
 
         try {
-            $q = $db->prepare('SELECT email FROM users WHERE email = ?');
+            $q = $db->prepare('SELECT email FROM groupomania_users WHERE email = ?');
             $q->execute([$email]);
             $email = $q->fetch()['email'];
         } catch (\Exception $e) {

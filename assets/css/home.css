@@ -1,6 +1,66 @@
-.three-dots:after {
-  content: '\2807';
-  font-size: 1.5em; 
+body {
+  font-family: "Roboto", sans-serif; 
+}
+  body .post {
+    width: 40%;
+    margin-bottom: 25px;
+    padding: 12px 10px 18px 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+    background-color: #fafafa; 
+}
+    body .post .top {
+      display: flex;
+      align-items: center; 
+}
+      body .post .top .fa-user-circle {
+        font-size: 2.5em;
+        color: #cfcfcf; 
+}
+      body .post .top p {
+        margin: 0 0 0 15px; 
+}
+        body .post .top p .author {
+          color: #442b2d;
+          letter-spacing: 0.2px;
+          line-height: 1.5; 
+}
+        body .post .top p .time {
+          font-size: 0.85em;
+          line-height: 1.43;
+          letter-spacing: 0.3px;
+          color: #DAD6D5; 
+}
+    body .post h2 {
+      color: rgba(0, 0, 0, 0.87);
+      margin: 16px 0 20px 0; 
+}
+    body .post .three-dots {
+      margin-left: auto;
+      cursor: pointer; 
+}
+      body .post .three-dots:after {
+        content: '\2807';
+        font-size: 1.5em;
+        color: #9A8A8A; 
+}
+    body .post .content {
+      line-height: 1.75;
+      letter-spacing: 0.5px;
+      color: #666464; 
+}
+    body .post .nb-comments {
+      margin: 13px 0 0 0;
+      letter-spacing: 0.5px;
+      color: #6F6D6D;
+      display: flex;
+      align-items: center; 
+}
+      body .post .nb-comments .fa-comment {
+        font-size: 1.2em; 
+}
+      body .post .nb-comments span {
+        margin-left: 11px; 
 }
 
 /*# sourceMappingURL=home.css.map */

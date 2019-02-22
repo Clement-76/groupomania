@@ -7,20 +7,20 @@
 
 {% block content %}
     {% for post in posts %}
-        <article>
-            <div>
+        <article class="post">
+            <div class="top">
                 <i class="fas fa-user-circle"></i>
                 <p>
-                    <b>{{ post.getAuthor() }}</b>
-                    <span>{{ post.getElapsedTime() }}</span>
+                    <b class="author">{{ post.getAuthor() }}</b><br>
+                    <span class="time">{{ post.getElapsedTime() }}</span>
                 </p>
                 <div class="three-dots"></div>
             </div>
 
             <h2>{{ post.getTitle() }}</h2>
-            <div>{{ post.getContent() }}</div>
+            <div class="content">{{ post.getContent() }}</div>
             {# if the number of comments is more than 0, add "s" to the word #}
-            <p>0 Commentaire</p>
+            <p class="nb-comments"><i class="far fa-comment"></i><span>0 Commentaire</span></p>
         </article>
     {% endfor %}
 {% endblock %}

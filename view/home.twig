@@ -1,1 +1,28 @@
-<p>Welcome</p>
+{% extends "template.twig" %}
+
+{% block links %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/home.css">
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <div>
+                <i class="fas fa-user-circle"></i>
+                <p>
+                    <b>{{ post.getAuthor() }}</b>
+                    <span>{{ post.getElapsedTime() }}</span>
+                </p>
+                <div class="three-dots"></div>
+            </div>
+
+            <h2>{{ post.getTitle() }}</h2>
+            <div>{{ post.getContent() }}</div>
+            {# if the number of comments is more than 0, add "s" to the word #}
+            <p>0 Commentaire</p>
+        </article>
+    {% endfor %}
+{% endblock %}
+
+{% block scripts %}{% endblock %}

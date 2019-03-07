@@ -75,12 +75,12 @@ class Post {
 
         switch (true) {
             case ($elapsedTime->format('%m') > 0):
-                setlocale(LC_TIME,'fra');
+                setlocale (LC_TIME, 'fr_FR', 'fra');
                 $elapsedTime = utf8_encode(strftime("%d %B %Y", $creationDate->getTimestamp()));
                 break;
 
             case ($elapsedTime->format('%d') > 0):
-                setlocale(LC_TIME, 'fra');
+                setlocale (LC_TIME, 'fr_FR', 'fra');
                 $elapsedTime = utf8_encode(strftime("%#d %B, %Hh%M", $creationDate->getTimestamp()));
                 break;
 

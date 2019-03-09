@@ -1,7 +1,36 @@
 @import "variables";
+@import "mixins/placeholder";
 
 body {
     font-family: $fonts;
+
+    .search {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 30px;
+
+        input[type="search"] {
+            padding: 7px 10px 7px 42px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            background-color: $block-bg;
+            box-sizing: border-box;
+            width: 360px;
+            outline: none;
+
+            @include placeholder {
+                color: $text-color;
+            }
+        }
+
+        i.fa-search {
+            color: #92928f;
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
 
     .post {
         width: 40%;
@@ -9,7 +38,7 @@ body {
         padding: 12px 10px 18px 10px;
         border-radius: 2px;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
-        background-color: #fafafa;
+        background-color: $block-bg;
 
         .top {
             display: flex;
@@ -57,7 +86,7 @@ body {
         .content {
             line-height: 1.75;
             letter-spacing: 0.5px;
-            color: #666464;
+            color: $text-color;
         }
 
         .nb-comments {

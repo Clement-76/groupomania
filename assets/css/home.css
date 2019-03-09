@@ -1,6 +1,36 @@
 body {
   font-family: "Roboto", sans-serif; 
 }
+  body .search {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 30px; 
+}
+    body .search input[type="search"] {
+      padding: 7px 10px 7px 42px;
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      background-color: #fafafa;
+      box-sizing: border-box;
+      width: 360px;
+      outline: none; 
+}
+      body .search input[type="search"]::placeholder {
+        color: #666464; 
+}
+      body .search input[type="search"]::-ms-input-placeholder {
+        color: #666464; 
+}
+      body .search input[type="search"]::-webkit-input-placeholder {
+        color: #666464; 
+}
+    body .search i.fa-search {
+      color: #92928f;
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%); 
+}
   body .post {
     width: 40%;
     margin-bottom: 25px;

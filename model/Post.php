@@ -2,7 +2,7 @@
 
 namespace ClementPatigny\Model;
 
-class Post {
+class Post implements \JsonSerializable {
     private $_id;
     private $_title;
     private $_content;
@@ -30,6 +30,19 @@ class Post {
                 $this->$setter($value);
             }
         }
+    }
+
+    public function jsonSerialize() {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getTitle(),
+            'content' => $this->getContent(),
+            'creationDate' => $this->getCreationDate(),
+            'elapsedTime' => $this->getElapsedTime(),
+            'author' => $this->getAuthor(),
+            'nbComments' => $this->getNbComments(),
+            'category' => $this->getCategory()
+        ];
     }
 
     /**

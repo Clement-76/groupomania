@@ -2,21 +2,8 @@ class PostsManager {
     constructor(inputSearchId, postsBlockId) {
         this.postsBlockId = $('#' + postsBlockId);
         this.inputSearch = $('#' + inputSearchId);
-        this.inputSearch.on('keypress', this.enterDetection.bind(this));
-        this.inputSearch.on('blur', this.getPosts.bind(this));
+        this.inputSearch.on('input blur', this.getPosts.bind(this));
         this.getPosts();
-    }
-
-    /**
-     * send a new message if the enter key is pressed but not the shift key
-     * @param e the event object
-     */
-    enterDetection(e) {
-        if (e.keyCode === 13) {
-            if (!e.shiftKey) {
-                this.getPosts();
-            }
-        }
     }
 
     /**
@@ -34,15 +21,15 @@ class PostsManager {
         }
 
         $.get(url, (data) => {
-            // if there are posts that contains the searched text
-            if (data['posts'].length > 0) {
-                let postsHTML = [];
+            if (data['status'] === 'success') {
+                // clear the posts
+                this.postsBlockId.empty();
 
                 data['posts'].forEach((post) => {
-                    postsHTML.push(this.createHTMLPost(post));
+                    this.postsBlockId.append(this.createHTMLPost(post));
                 });
-
-                this.displayPosts(postsHTML);
+            } else {
+                console.error(data['message']);
             }
         }, 'json');
     }
@@ -76,17 +63,5 @@ class PostsManager {
         } catch (e) {
             throw new Error(e);
         }
-    }
-
-    /**
-     * display the post on the home page
-     * @param posts
-     */
-    displayPosts(posts) {
-        this.postsBlockId.empty();
-
-        posts.forEach((post) => {
-            this.postsBlockId.append(post);
-        });
     }
 }

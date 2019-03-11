@@ -10,29 +10,37 @@ class PostsController extends AppController {
      * @throws \Exception
      */
     public function getJSONPosts() {
-        if (isset($_GET['text']) && !empty($_GET['text'])) {
-            try {
-                $postManager = new PostManager();
-                $posts = $postManager->getPosts($_GET['text']);
-            } catch (\Exception $e) {
-                throw new \Exception($e->getMessage());
-            }
+        if (isset($_SESSION['user'])) {
 
-            echo json_encode([
-                'status' => 'success',
-                'posts' => $posts
-            ]);
+            if (isset($_GET['text']) && !empty($_GET['text'])) {
+                try {
+                    $postManager = new PostManager();
+                    $posts = $postManager->getPosts($_GET['text']);
+                } catch (\Exception $e) {
+                    throw new \Exception($e->getMessage());
+                }
+
+                echo json_encode([
+                    'status' => 'success',
+                    'posts' => $posts
+                ]);
+            } else {
+                try {
+                    $postManager = new PostManager();
+                    $posts = $postManager->getPosts();
+                } catch (\Exception $e) {
+                    throw new \Exception($e->getMessage());
+                }
+
+                echo json_encode([
+                    'status' => 'success',
+                    'posts' => $posts
+                ]);
+            }
         } else {
-            try {
-                $postManager = new PostManager();
-                $posts = $postManager->getPosts();
-            } catch (\Exception $e) {
-                throw new \Exception($e->getMessage());
-            }
-
             echo json_encode([
-                'status' => 'success',
-                'posts' => $posts
+                'status' => 'error',
+                'posts' => 'You\'re not connected'
             ]);
         }
     }

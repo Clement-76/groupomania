@@ -2,21 +2,59 @@
 
 {% block links %}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
     <link rel="stylesheet" href="assets/css/home.css">
 {% endblock %}
 
 {% block content %}
+    <div id="overlay"></div>
 
-    <div class="search">
-        <input id="research" type="search" placeholder="Rechercher...">
-        <i class="fas fa-search"></i>
+    <div class="mobile-menu">
+        <div id="hamburger-categories" class="open">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="hamburger-search" class="close">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="search-mobile" class="search">
+            <input class="research-posts mobile" type="search" placeholder="Rechercher...">
+            <i class="icon-search"></i>
+        </div>
+
+        <div id="icons-container" class="icons">
+            <i class="icon-notification"></i>
+            <i id="search-icon-mobile" class="icon-search"></i>
+            <i class="far fa-user"></i>
+        </div>
     </div>
 
-    <div id="posts"></div>
+    <div id="content">
+        <div id="categories">
+            <h2>Catégories</h2>
+        </div>
+
+        <div class="posts">
+            <div class="search">
+                <input class="research-posts" type="search" placeholder="Rechercher...">
+                <i class="icon-search"></i>
+            </div>
+
+            <div id="posts"></div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
     <script src="assets/js/create.js"></script>
-    <script src="assets/js/PostsManager.js"></script>
+    <script src="assets/js/Categories.js"></script>
+    <script src="assets/js/Posts.js"></script>
+    <script src="assets/js/Menu.js"></script>
     <script src="assets/js/main.js"></script>
 {% endblock %}

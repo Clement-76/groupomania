@@ -11,7 +11,7 @@ class PostManager extends Manager {
      * @throws \Exception
      */
     public function getPosts($text = false) {
-        $db = $this->connectDb();
+        $db = $this->getDb();
 
         try {
             // if we search posts by title with a text provided by the user

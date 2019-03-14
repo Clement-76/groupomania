@@ -40,7 +40,7 @@ class PostsController extends AppController {
         } else {
             echo json_encode([
                 'status' => 'error',
-                'posts' => 'You\'re not connected'
+                'message' => 'You\'re not connected'
             ]);
         }
     }

@@ -11,7 +11,7 @@ class UserManager extends Manager {
      * @throws \Exception
      */
     public function getUser($login, $loginType) {
-        $db = $this->connectDb();
+        $db = $this->getDb();
 
         try {
             if ($loginType == 'email') {
@@ -47,7 +47,7 @@ class UserManager extends Manager {
      * @throws \Exception
      */
     public function createUser($userFeatures) {
-        $db = $this->connectDb();
+        $db = $this->getDb();
 
         try {
             $q = $db->prepare('INSERT INTO groupomania_users(pseudo, email, password) VALUE(:pseudo, :email, :password)');
@@ -68,7 +68,7 @@ class UserManager extends Manager {
      * @throws \Exception
      */
     public function getPseudo($pseudo) {
-        $db = $this->connectDb();
+        $db = $this->getDb();
 
         try {
             $q = $db->prepare('SELECT pseudo FROM groupomania_users WHERE pseudo = ?');
@@ -87,7 +87,7 @@ class UserManager extends Manager {
      * @throws \Exception
      */
     public function getEmail($email) {
-        $db = $this->connectDb();
+        $db = $this->getDb();
 
         try {
             $q = $db->prepare('SELECT email FROM groupomania_users WHERE email = ?');

@@ -1,7 +1,7 @@
-class PostsManager {
-    constructor(inputSearchId, postsBlockId) {
+class Posts {
+    constructor(inputSearchClass, postsBlockId) {
         this.postsBlockId = $('#' + postsBlockId);
-        this.inputSearch = $('#' + inputSearchId);
+        this.inputSearch = $('.' + inputSearchClass);
         this.inputSearch.on('input blur', this.getPosts.bind(this));
         this.getPosts();
     }
@@ -9,8 +9,13 @@ class PostsManager {
     /**
      * get the posts with an ajax request
      */
-    getPosts() {
-        let searchedText = this.inputSearch.val();
+    getPosts(e = false) {
+        let searchedText = '';
+
+        if (e !== false) {
+            searchedText = $(e.target).val();
+        }
+
         let emptyRegex = /^[\s]*$/;
         let url;
 
